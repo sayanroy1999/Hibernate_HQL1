@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration SYSTEM
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="connection.url">jdbc:mysql://localhost:3306/myhiber</property>
+        <property name="connection.username">root</property>
+        <property name="connection.password">Sayan@321</property>
+        <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+        <property name="hbm2ddl.auto">create</property>
+        <property name="show_sql">true</property>
+        <!--        This mapping will tell hibernate from which class to take the data from-->
+        <!--        If there are more than 1 class, then we will add more mappings-->
+        <!--        For xml file dependencies, instead of annotations, we would use resources instead of class-->
+        <mapping class="com.example.demo21.Student"/>
+        <!--        <mapping class="com.example.demo17.Certificate"/>-->
+    </session-factory>
+</hibernate-configuration>
