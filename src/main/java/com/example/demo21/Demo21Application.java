@@ -52,28 +52,28 @@ public class Demo21Application {
 
 		//HQL query
 		//Syntax:-
-		// 1) String query="from Student";
+		 String query="from Student";
 
 		//We can also use the query as-
 		//2) String query="from Student where city='Tokyo'";
 
 		//We can also use the query as-
-		String query="from Student as s where city=:x and s.name=:n"; //making it dynamic
-
+//		String query="from Student as s where city=:x and s.name=:n"; //making it dynamic
+//
 		Query q=session.createQuery(query);
-		q.setParameter("x","Tokyo");
-		q.setParameter("n","Pikachu");
-
-		//Now from the query v can fetch either multiple result or single result
-		//For single result- q.uniqueResult();
-
-		//For multiple results-
-		List<Student> list=q.getResultList();
-		for(Student s:list)
-		{
-			System.out.println(s.getName());
-			System.out.println(s.getCerti().getCourse());
-		}
+//		q.setParameter("x","Tokyo");
+//		q.setParameter("n","Pikachu");
+//
+//		//Now from the query v can fetch either multiple result or single result
+//		//For single result- q.uniqueResult();
+//
+//		//For multiple results-
+//		List<Student> list=q.getResultList();
+//		for(Student s:list)
+//		{
+//			System.out.println(s.getName());
+//			System.out.println(s.getCerti().getCourse());
+//		}
 
 		//Delete query
 		//Query q2= session.createQuery(delete from student s where s.city=:c);
@@ -90,6 +90,16 @@ public class Demo21Application {
 //		{
 //			System.out.println(Arrays.toString(arr));
 //		}
+
+		//Implementing pagination-
+		q.setFirstResult(0);
+		q.setMaxResults(2);
+
+		List<Student> list=q.getResultList();
+		for(Student s:list)
+		{
+			System.out.println(s.getId()+":"+s.getCity());
+		}
 
 		session.close();
 		factory.close();
