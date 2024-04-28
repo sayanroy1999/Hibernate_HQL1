@@ -9,6 +9,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @SpringBootApplication
@@ -73,6 +74,22 @@ public class Demo21Application {
 			System.out.println(s.getName());
 			System.out.println(s.getCerti().getCourse());
 		}
+
+		//Delete query
+		//Query q2= session.createQuery(delete from student s where s.city=:c);
+		//int r= q2.executeUpdate(); //gives the number of rows affected
+
+		//Update query
+		//Query q3= session.createQuery(delete from student s where s.city=:c);
+		//int r= q3.executeUpdate(); //gives the number of rows affected
+
+		//Join queries
+		//Query q4= session.createQuery(select q.question. q.questionId, a.questionId from Question INNER JOIN q.answers as a;
+//		List<Object[]> lis=q4.getResultList();
+//		for(Object[] arr:list3)
+//		{
+//			System.out.println(Arrays.toString(arr));
+//		}
 
 		session.close();
 		factory.close();
